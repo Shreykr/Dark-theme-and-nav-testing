@@ -27,15 +27,15 @@ $prac-app-theme: mat-light-theme((
 @include angular-material-theme($prac-app-theme);
 
 //for dark theme
-$prac-app-primary-dark: mat-palette($mat-red);
-$prac-app-accent-dark: mat-palette($mat-grey,900);
-$prac-app-warn-dark: mat-palette($mat-orange);
+$prac-app-primary: mat-palette($mat-red);
+$prac-app-accent: mat-palette($mat-grey);
+$prac-app-warn: mat-palette($mat-orange);
 
 $prac-app-theme-dark: mat-dark-theme((
   color: (
-    primary: $prac-app-primary-dark,
-    accent: $prac-app-accent-dark,
-    warn: $prac-app-warn-dark,
+    primary: $prac-app-primary,
+    accent: $prac-app-accent,
+    warn: $prac-app-warn,
   )
 ));
 .dark-theme-mode{
