@@ -1,43 +1,104 @@
 
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
-@import '~@angular/material/theming';
+// @import '~@angular/material/theming';
 // Plus imports for other components in your app.
 
 // Include the common styles for Angular Material. We include this here so that you only
 // have to load a single css file for Angular Material in your app.
 // Be sure that you only ever include this mixin once!
-@include mat-core();
+// @include mat-core();
 
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$prac-app-primary: mat-palette($mat-light-blue);
-$prac-app-accent: mat-palette($mat-light-green);
-$prac-app-warn: mat-palette($mat-red);
+// $prac-app-primary: mat-palette($mat-light-blue);
+// $prac-app-accent: mat-palette($mat-light-green);
+// $prac-app-warn: mat-palette($mat-red);
 
-$prac-app-theme: mat-light-theme((
-  color: (
-    primary: $prac-app-primary,
-    accent: $prac-app-accent,
-    warn: $prac-app-warn,
-  )
-));
+// $prac-app-theme: mat-light-theme((
+//   color: (
+//     primary: $prac-app-primary,
+//     accent: $prac-app-accent,
+//     warn: $prac-app-warn,
+//   )
+// ));
 
-@include angular-material-theme($prac-app-theme);
+// @include angular-material-theme($prac-app-theme);
 
 //for dark theme
-$prac-app-primary: mat-palette($mat-red);
-$prac-app-accent: mat-palette($mat-grey);
-$prac-app-warn: mat-palette($mat-orange);
+// $prac-app-primary: mat-palette($mat-red);
+// $prac-app-accent: mat-palette($mat-grey);
+// $prac-app-warn: mat-palette($mat-orange);
 
-$prac-app-theme-dark: mat-dark-theme((
-  color: (
-    primary: $prac-app-primary,
-    accent: $prac-app-accent,
-    warn: $prac-app-warn,
+// $prac-app-theme-dark: mat-dark-theme((
+//   color: (
+//     primary: $prac-app-primary,
+//     accent: $prac-app-accent,
+//     warn: $prac-app-warn,
+//   )
+// ));
+// .dark-theme-mode{
+//   @include angular-material-theme($prac-app-theme-dark);
+// }
+
+@import '~@angular/material/theming';
+@include mat-core();
+
+$mat-primary-scheme: (
+  100: #bec6e7,
+  500: #2775b0,
+  700: #1f7aa2,
+  contrast: (
+    100: rgba(0,0,0,0.87),
+    500: #ffffff,
+    700: #ffffff,
   )
-));
-.dark-theme-mode{
-  @include angular-material-theme($prac-app-theme-dark);
+);
+$mat-accent-scheme: (
+  100: #dfc870,
+  500: #ecc932,
+  700: #f90,
+  contrast: (
+    100: rgba(0,0,0,0.87),
+    500: rgba(0,0,0,0.87),
+    700: #ffffff,
+  )
+);
+$mat-primary-palette: mat-palette($mat-primary-scheme);
+$mat-accent-palette: mat-palette($mat-accent-scheme);
+
+$prac-app-light-theme: mat-light-theme($mat-primary-palette, $mat-accent-palette);
+
+@include angular-material-theme($prac-app-light-theme);
+
+// following section is for dark mode.
+// use appropriate class name for darkMode
+$mat-primary-scheme-dark: (
+  100: #f8bbd0,
+  500: #9a0f0f,
+  700: #c2185b,
+  contrast: (
+    100: rgba(0,0,0,0.87),
+    500: #fff,
+    700: #ffffff,
+  )
+);
+$mat-accent-scheme-dark: (
+  100: #0b0b0b,
+  500: #b0bec5,
+  700: #8ca1ac,
+  contrast: (
+    100: rgba(0,0,0,0.87),
+    500: rgba(0,0,0,0.87),
+    700: #ffffff,
+  )
+);
+$mat-primary-palette: mat-palette($mat-primary-scheme-dark);
+$mat-accent-palette: mat-palette($mat-accent-scheme-dark);
+
+$prac-app-dark-theme: mat-dark-theme($mat-primary-palette, $mat-accent-palette);
+.dark-theme-mode {
+  @include angular-material-theme($prac-app-dark-theme);
 }
+    
